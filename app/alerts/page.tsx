@@ -34,11 +34,14 @@ export default function AlertsPage() {
   ) => {
     setLoadingIds((prev) => [...prev, alertId]);
     try {
-      const res = await fetch("http://localhost:3001/api/alerts/solve", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ message, repoName }),
-      });
+      const res = await fetch(
+        "https://aition-b.onrender.com/api/alerts/solve",
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ message, repoName }),
+        },
+      );
       const data = await res.json();
       setSolutions((prev) => ({ ...prev, [alertId]: data.plan }));
     } catch (e) {

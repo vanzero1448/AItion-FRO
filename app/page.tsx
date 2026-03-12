@@ -68,7 +68,7 @@ export default function Dashboard() {
     setIsSearching(true);
     try {
       // Отправляем команду на наш бэкенд (порт 3001)
-      const res = await fetch("http://localhost:3001/api/audit", {
+      const res = await fetch("https://aition-b.onrender.com/api/audit", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ repo: searchQuery.trim() }),
